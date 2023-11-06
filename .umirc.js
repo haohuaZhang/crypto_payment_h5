@@ -1,5 +1,5 @@
 const path = require('path');
-
+import pageRoutes from './config/router.config';
 const server = 'http://localhost:3000';
 
 // ref: https://umijs.org/config/
@@ -21,6 +21,11 @@ export default {
         ]
       },
       hardSource: false,
+      locale: {
+        enable: true, // default false
+        default: 'en-US', // default zh-CN
+        baseNavigator: true, // default true, when it is true, will use `navigator.language` overwrite default
+      },
     }],
   ],
   alias:{
@@ -31,6 +36,7 @@ export default {
         // themes:path.resolve(__dirname,'src/themes'),
         images:path.resolve(__dirname,'src/assets')
   },
+  routes: pageRoutes,
   // proxy: {
   //   "/api": {
   //     "target": 'http://192.168.2.120:8081',
